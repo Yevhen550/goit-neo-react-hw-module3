@@ -1,8 +1,15 @@
+import s from "./App.module.css";
+
+import Container from "./components/Container/Container";
+
 function App() {
   return (
-    <>
-      <h1>Vite + React</h1>
-    </>
+    <Container>
+      <h1 className={s.title}>Phonebook</h1>
+      {/* <ContactForm />
+      <SearchBox />
+      <ContactList /> */}
+    </Container>
   );
 }
 
