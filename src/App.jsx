@@ -10,14 +10,24 @@ import dataContacts from "./data/contacts.json";
 function App() {
   const [contacts, setContacts] = useState(dataContacts);
 
-  const addContact = (newContact) => {};
+  const addContact = (newContact) => {
+    setContacts((prevContacts) => {
+      return [...prevContacts, newContact];
+    });
+  };
+
+  const deleteContact = (contactId) => {
+    setContacts((prevContacts) => {
+      return prevContacts.filter((contact) => contact.id !== contactId);
+    });
+  };
 
   return (
     <Container>
       <h1 className={s.title}>Phonebook</h1>
-      <ContactForm />
+      <ContactForm onAdd={addContact} />
       {/* <SearchBox /> */}
-      <ContactList contacts={contacts} />
+      <ContactList contacts={contacts} onDelete={deleteContact} />
     </Container>
   );
 }

@@ -5,6 +5,24 @@
   margin-bottom: 25px;
 }
 
+.inputForm {
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  border: none;
+}
+
+.spanForm {
+  color: var(--light-text-color);
+  margin-bottom: 3px;
+}
+
+.inputLabel {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
 .btn {
   padding: 1.5em 3em;
   font-size: 1em;
@@ -20,4 +38,8 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+
+.btn:hover {
+  scale: 1.02;
 }
