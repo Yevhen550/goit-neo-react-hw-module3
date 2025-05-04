@@ -1,5 +1,6 @@
 :root {
   --text-color: #212121;
+  --light-text-color: #e1b1b1;
   --white-text-color: #83e87a;
   --dark-bg-img: #3f3c3c;
 
@@ -9,7 +10,6 @@
   --online-status-color: green;
   --offline-status-color: rgb(230, 114, 114);
 
-  --trow-bg-color: #efefef;
   --trow-accent-bg-color: beige;
   --table-border-color: #f9f9f9;
 
@@ -50,3 +50,4 @@ h2 {
   margin-top: 0;
   text-transform: uppercase;
 }
+
