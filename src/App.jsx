@@ -21,7 +21,7 @@ function App() {
     <Container>
       <h1 className={s.title}>Phonebook</h1>
       <ContactForm onAdd={addContact} />
-      {/* <SearchBox /> */}
+      <Searchbox />
       <ContactList contacts={contacts} onDelete={deleteContact} />
     </Container>
   );
