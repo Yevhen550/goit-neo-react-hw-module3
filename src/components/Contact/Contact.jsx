@@ -9,16 +9,10 @@ const Contact = ({ contact, onDelete }) => {
           <FaUser className={s.icon} /> {contact.name}
         </p>
         <p className={s.number}>
-          <FaPhoneAlt className={s.icon} />
-          {contact.number}
+          <FaPhoneAlt className={s.icon} /> {contact.number}
         </p>
       </div>
-      <button
-        className={s.btn}
-        onClick={() => {
-          onDelete(contact.id);
-        }}
-      >
+      <button className={s.btn} onClick={() => onDelete(contact.id)}>
         Delete
       </button>
     </div>

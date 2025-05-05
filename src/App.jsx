@@ -2,24 +2,19 @@ import { useState } from "react";
 import s from "./App.module.css";
 import Container from "./components/Container/Container";
 import ContactList from "./components/ContactList/ContactList";
-import Searchbox from "./components/SearchBox/SearchBox";
 import ContactForm from "./components/ContactForm/ContactForm";
-
+import Searchbox from "./components/SearchBox/SearchBox";
 import dataContacts from "./data/contacts.json";
 
 function App() {
   const [contacts, setContacts] = useState(dataContacts);
 
   const addContact = (newContact) => {
-    setContacts((prevContacts) => {
-      return [...prevContacts, newContact];
-    });
+    setContacts((prev) => [...prev, newContact]);
   };
 
   const deleteContact = (contactId) => {
-    setContacts((prevContacts) => {
-      return prevContacts.filter((contact) => contact.id !== contactId);
-    });
+    setContacts((prev) => prev.filter((contact) => contact.id !== contactId));
   };
 
   return (

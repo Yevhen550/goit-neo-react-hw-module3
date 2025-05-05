@@ -1,24 +1,42 @@
+import { nanoid } from "nanoid";
 import s from "./ContactForm.module.css";
 
 export const ContactForm = ({ onAdd }) => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
+    const name = ev.target.elements.name.value;
+    const number = ev.target.elements.number.value;
+
     onAdd({
-      name: ev.target.elements.text.value,
-      number: ev.target.elements.tel.value,
+      id: nanoid(),
+      name,
+      number,
     });
+
     ev.target.reset();
   };
 
   return (
     <form className={s.form} onSubmit={handleSubmit}>
-      <label className={s.inputLabel} htmlFor="text">
+      <label className={s.inputLabel} htmlFor="name">
         <span className={s.spanForm}>Name</span>
-        <input className={s.inputForm} type="text" name="text" id="text" />
+        <input
+          className={s.inputForm}
+          type="text"
+          name="name"
+          id="name"
+          required
+        />
       </label>
-      <label className={s.inputLabel} htmlFor="tel">
+      <label className={s.inputLabel} htmlFor="number">
         <span className={s.spanForm}>Number</span>
-        <input className={s.inputForm} type="tel" name="tel" id="tel" />
+        <input
+          className={s.inputForm}
+          type="tel"
+          name="number"
+          id="number"
+          required
+        />
       </label>
       <button className={s.btn} type="submit">
         Add contact
