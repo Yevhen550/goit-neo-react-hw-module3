@@ -15,8 +15,6 @@ function App() {
   const [contacts, setContacts] = useState(initialData);
   const [filter, setFilter] = useState("");
 
-  console.log(filter);
-
   const addContact = (newContact) => {
     setContacts((prev) => [...prev, newContact]);
   };
@@ -36,7 +34,6 @@ function App() {
   return (
     <Container>
       <h1 className={s.title}>Phonebook</h1>
-
       <ContactForm onAdd={addContact} />
       <Searchbox value={filter} onFilter={setFilter} />
       <ContactList contacts={filterContact} onDelete={deleteContact} />
