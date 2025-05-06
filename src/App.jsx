@@ -7,8 +7,8 @@ import Searchbox from "./components/SearchBox/SearchBox";
 import dataContacts from "./data/contacts.json";
 
 const initialData = () => {
-  const saveLS = localStorage.getItem("contacts");
-  return saveLS ? JSON.parse(saveLS) : dataContacts;
+  const savedLS = localStorage.getItem("contacts");
+  return savedLS ? JSON.parse(savedLS) : dataContacts;
 };
 
 function App() {
