@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import s from "./App.module.css";
 import Container from "./components/Container/Container";
 import ContactList from "./components/ContactList/ContactList";
@@ -6,8 +6,16 @@ import ContactForm from "./components/ContactForm/ContactForm";
 import Searchbox from "./components/SearchBox/SearchBox";
 import dataContacts from "./data/contacts.json";
 
+const initialData = () => {
+  const saveLS = localStorage.getItem("contacts");
+  return saveLS ? JSON.parse(saveLS) : dataContacts;
+};
+
 function App() {
-  const [contacts, setContacts] = useState(dataContacts);
+  const [contacts, setContacts] = useState(initialData);
+  const [filter, setFilter] = useState("");
+
+  console.log(filter);
 
   const addContact = (newContact) => {
     setContacts((prev) => [...prev, newContact]);
@@ -17,12 +25,21 @@ function App() {
     setContacts((prev) => prev.filter((contact) => contact.id !== contactId));
   };
 
+  const filterContact = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
+
+  useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+  }, [contacts]);
+
   return (
     <Container>
       <h1 className={s.title}>Phonebook</h1>
+
       <ContactForm onAdd={addContact} />
-      <Searchbox />
-      <ContactList contacts={contacts} onDelete={deleteContact} />
+      <Searchbox value={filter} onFilter={setFilter} />
+      <ContactList contacts={filterContact} onDelete={deleteContact} />
     </Container>
   );
 }

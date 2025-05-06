@@ -1,11 +1,17 @@
 import s from "./SearchBox.module.css";
 
-const Searchbox = () => {
+const Searchbox = ({ value, onFilter }) => {
   return (
     <div className={s.searchBox}>
-      <h2 className={s.searchTitle}>Find contacts by name</h2>
+      <p className={s.searchTitle}>Find contacts by name</p>
       <label>
-        <input className={s.searchInput} type="text" name="text" />
+        <input
+          className={s.searchInput}
+          type="text"
+          name="text"
+          value={value}
+          onChange={(ev) => onFilter(ev.target.value)}
+        />
       </label>
     </div>
   );
