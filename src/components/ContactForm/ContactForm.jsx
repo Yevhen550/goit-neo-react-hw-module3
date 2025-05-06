@@ -17,7 +17,6 @@ const contactSchema = Yup.object().shape({
 });
 
 const initialValues = {
-  id: nanoid(),
   name: "",
   number: "",
 };
@@ -27,7 +26,11 @@ const ContactForm = ({ onAdd }) => {
   const numberFieldId = useId();
 
   const handleSubmit = (values, actions) => {
-    onAdd(values);
+    const newContact = {
+      ...values,
+      id: nanoid(),
+    };
+    onAdd(newContact);
     actions.resetForm();
   };
 
