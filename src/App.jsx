@@ -33,7 +33,7 @@ function App() {
 
   return (
     <Container>
-      <h1 className={s.title}>Phonebook</h1>
+      <h1 className={s.title}>Phonebook</h1>  
       <ContactForm onAdd={addContact} />
       <Searchbox value={filter} onFilter={setFilter} />
       <ContactList contacts={filterContact} onDelete={deleteContact} />
